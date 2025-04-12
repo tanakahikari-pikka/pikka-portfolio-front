@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  dev:
+    container_name: pikka-portfolio-front
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: always
+    ports:
+      - "3025:3025"
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+    environment:
+      - NODE_ENV=development
+    command: npm run dev

@@ -1,0 +1,14 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+COPY package.json package-lock.json* ./
+RUN npm install
+RUN npm install -D tailwindcss postcss autoprefixer
+
+COPY . .
+RUN npx tailwindcss init -p
+
+EXPOSE 3025
+
+CMD ["npm", "run", "dev"]
