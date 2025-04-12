@@ -1,0 +1,18 @@
+version: '3'
+
+tasks:
+  setup:
+    cmds:
+      - docker-compose build
+
+  dev:
+    cmds:
+      - docker-compose up dev
+
+  down:
+    cmds:
+      - docker-compose down
+
+  watch:
+    cmds:
+      - docker-compose watch dev
