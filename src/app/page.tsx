@@ -1,6 +1,7 @@
 'use client';
+import { Experience } from '@/components/Experience';
 import { motion } from 'framer-motion';
-import { X, Menu, Maximize2, Grid, ChevronLeft, ChevronRight, Github, Mail, Linkedin, ArrowDown, Code, Monitor, Server, Twitter, Cpu, Database, ExternalLink, Filter, Globe, Library, Tag } from 'lucide-react';
+import { X, Menu, Github, Mail, Linkedin, ArrowDown, Code, Monitor, Twitter, Cpu, Database, ExternalLink, Filter, Globe, Library, Tag } from 'lucide-react';
 import React from 'react';
 
 import { useState, useEffect } from 'react';
@@ -902,6 +903,7 @@ export default function Home() {
       <Navigation />
         <main>
           <Hero />
+          <Experience />
           <Projects />
           <Skills />
           <Contact />
