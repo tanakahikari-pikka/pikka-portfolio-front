@@ -3,42 +3,103 @@
 @tailwind utilities;
 
 :root {
-  --primary-color: #0066CC;
-  --secondary-color: #333333;
-  --accent-color: #FF6600;
-  --background-color: #FFFFFF;
-  --background-secondary: #F8F8F8;
-  --text-color: #333333;
-  --text-secondary: #666666;
+	--primary-color: #0066cc;
+	--secondary-color: #333333;
+	--accent-color: #ff6600;
+	--background-color: #ffffff;
+	--background-secondary: #f8f8f8;
+	--text-color: #333333;
+	--text-secondary: #666666;
 }
 
 body {
-  color: var(--text-color);
-  background-color: var(--background-color);
+	color: var(--text-color);
+	background-color: var(--background-color);
 }
 
 @layer components {
-  .container-custom {
-    @apply container mx-auto px-4 lg:px-8 max-w-6xl;
-  }
-  
-  .section-padding {
-    @apply py-16 md:py-24;
-  }
-  
-  .section-title {
-    @apply text-2xl md:text-3xl font-bold mb-8;
-  }
-  
-  .skill-badge {
-    @apply inline-block py-2 px-4 bg-gray-100 rounded-full text-sm mr-2 mb-2;
-  }
-  
-  .project-card {
-    @apply bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105;
-  }
-  
-  .contact-button {
-    @apply py-2 px-6 bg-primary text-white rounded-md hover:bg-primary/80 transition duration-300;
-  }
+	.container-custom {
+		@apply container mx-auto px-4 lg:px-8 max-w-6xl;
+	}
+
+	.section-padding {
+		@apply py-16 md:py-24;
+	}
+
+	.section-title {
+		@apply text-2xl md:text-3xl font-bold mb-8;
+	}
+
+	.skill-badge {
+		@apply inline-block py-2 px-4 bg-gray-100 rounded-full text-sm mr-2 mb-2;
+	}
+
+	.project-card {
+		@apply bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105;
+	}
+
+	.contact-button {
+		@apply py-2 px-6 bg-primary text-white rounded-md hover:bg-primary/80 transition duration-300;
+	}
+}
+
+/* 既存のスタイルに追加 */
+
+/* ハイライト効果 */
+@keyframes highlight-pulse {
+	0%,
+	100% {
+		box-shadow: 0 0 0 0 rgba(139, 92, 246, 0);
+		transform: scale(1);
+	}
+	50% {
+		box-shadow: 0 0 20px 5px rgba(139, 92, 246, 0.5);
+		transform: scale(1.02);
+	}
+}
+
+.highlight-project,
+.highlight-experience {
+	animation: highlight-pulse 2s ease-in-out;
+	position: relative;
+	z-index: 1;
+}
+
+/* スムーズスクロール */
+html {
+	scroll-behavior: smooth;
+}
+
+/* セクション間の視覚的区別 */
+section {
+	position: relative;
+}
+
+/* コンポーネント間の連携スタイル */
+.related-item-link {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	color: rgb(129 140 248); /* indigo-400 */
+	font-size: 0.875rem;
+	transition: all 0.2s;
+}
+
+.related-item-link:hover {
+	color: rgb(165 180 252); /* indigo-300 */
+}
+
+.related-item-link::after {
+	content: "";
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 0;
+	height: 1px;
+	background-color: currentColor;
+	transition: width 0.2s;
+}
+
+.related-item-link:hover::after {
+	width: 100%;
 }
